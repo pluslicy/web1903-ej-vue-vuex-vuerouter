@@ -31,6 +31,7 @@
         <template #default="record">
           <a href="" class="el-icon-delete" @click.prevent = "deleteHandler(record.row.id)"></a> &nbsp;
           <a href="" class="el-icon-edit-outline" @click.prevent = "editHandler(record.row)"></a>
+          <a href=""  @click.prevent = "toDetails(record.row)">详情</a>
         </template>
       </el-table-column>
     </el-table>
@@ -67,6 +68,14 @@ export default {
     ...mapActions("customer",["findAllCustomers","deleteCustomerById","saveOrUpdateCustomer","batchDeleteCustomers"]),
     ...mapMutations("customer",["showModal","closeModal","setTitle"]),
     // 普通方法
+    toDetails(customer){
+      // 跳转到顾客详情页面
+      this.$router.push({
+        path:'/customerDetail',
+        query:{customer},
+        // params:{id:1}
+      })
+    },
     batchDeleteHandler(){
       this.batchDeleteCustomers(this.ids)
       .then((response)=>{

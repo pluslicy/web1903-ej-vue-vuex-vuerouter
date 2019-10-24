@@ -4,9 +4,11 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/customer">顾客管理</router-link> |
       <router-link to="/category">栏目管理</router-link> |
-      <router-link to="/product">产品管理</router-link>
+      <router-link to="/product">产品管理</router-link> |
+      <router-link to="/order">订单管理</router-link>
     </div>
     <router-view/>
+
   </div>
 </template>
 
